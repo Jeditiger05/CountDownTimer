@@ -15,7 +15,7 @@ body{
 .counter-container {
     padding-top: -20px;
     border-radius: 10px;
-    background-image: url(../RickTimerApp/7-segment_back.jpg);
+    background-image: url(../../countdowntimer/assets/7-segment_back.jpg);
     background-size: 400px 150px;
     background-color: grey;
     margin: 30px;
@@ -66,7 +66,7 @@ input{
 
 @font-face {
     font-family: 'Segment7Standard';
-        src: url('Segment7Standard.otf') format('opentype');
+        src: url('../../CountDownTimer/assets/Segment7Standard.otf') format('opentype');
       }
 
 .seven-segment {
