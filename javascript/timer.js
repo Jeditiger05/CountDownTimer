@@ -47,19 +47,19 @@ $(document).ready(function () {//anonamous fucntion runs when page loads
             countDown = new Date();
             countDown.setTime(destination.getTime() + (minute * 60 * 1000));
             countDown.setTime(countDown.getTime() + (second * 1000));
-            countDown.setTime(countDown.getTime() + (1 * 1000));
+            //countDown.setTime(countDown.getTime() + (1 * 1000));
         }
 
         //Set Timer with 1000 milisecond (1 second) increment
         myTimer = setInterval(function () {
 
+            // Get the distance between current time and coundown time
+            position = countDown - destination;
             //Increment current time every interval
             destination.setTime(destination.getTime() + (1 * 1000));
 
-            // Get the distance between current time and coundown time
-            position = countDown - destination;
-
-            // Time calculations for days, hours, minutes and seconds
+            // Time calculations for days, hours, minutes and secondsvar days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((position % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             var minutes = Math.floor((position % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((position % (1000 * 60)) / 1000);
 
@@ -67,7 +67,7 @@ $(document).ready(function () {//anonamous fucntion runs when page loads
             $("#counter").html(String("0" + minutes).slice(-2) + "." + String("0" + seconds).slice(-2));
 
             //Stop timer when minutes ans seconds both = zero
-            if (minutes == 0 && seconds == 0) {
+            if (minutes == 0 && seconds == 0 && hours == 0) {
                 clearInterval(myTimer);
                 $("#reset").prop('disabled', false);
                 beep.play();
@@ -99,7 +99,7 @@ $(document).ready(function () {//anonamous fucntion runs when page loads
         $("#counter").html("");
         $("#reset").prop('disabled', true);
         $("#ready-spot").css("background-color", "darkred");
-        $("#start").prop('disabled', false);
+        $("#start").prop('disabled', true);
         console.log("Reset");
     });
 });
