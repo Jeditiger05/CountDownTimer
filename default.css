@@ -1,0 +1,79 @@
+body{
+    background-color: black;
+}
+.container {
+    text-align: center;
+    margin-top: 25px;
+    background-color: rgba(72, 76, 84, .8);
+    color: #35373a;
+    width: 600px;
+    height: 360px;
+    border-radius: 20px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.06);
+}
+
+.counter-container {
+    padding-top: -20px;
+    border-radius: 10px;
+    background-image: url(../RickTimerApp/7-segment_back.jpg);
+    background-size: 400px 150px;
+    background-color: grey;
+    margin: 30px;
+    display: inline-block;
+    text-align: center;
+    width: 400px;
+    height: 150px;
+}
+
+.my-buttons {
+    display: inline-block;
+    text-align: center;
+    width: 450px;
+    height: 30px;
+}
+
+.ready{
+    margin-left: -50px;
+    padding-top: 5px;
+    font-size: smaller;
+    border: solid black 1px;
+    color: ivory;
+    float: right;
+    width: 50px;
+    height: 50px;
+    background-color: darkred;
+    border-radius: 50px;
+}
+
+.my-btn {
+    text-align: center;
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+label {
+    font-weight: bolder;
+    color: orange;
+    font-size: xx-large;
+}
+
+input{
+    font-weight: bold;
+    width: 50px;
+    height: 35px;
+}
+
+@font-face {
+    font-family: 'Segment7Standard';
+        src: url('Segment7Standard.otf') format('opentype');
+      }
+
+.seven-segment {
+    text-align: center;
+    font-family: 'Segment7Standard';
+    font-style: italic;
+    font-weight: bolder;
+    color: rgb(151, 0, 25);
+    font-size: 120px;
+}
