@@ -26,7 +26,7 @@ $(document).ready(function () {//anonamous fucntion runs when page loads
 
         if (minute != 0 || second != 0) {
             $("#ready-spot").css("background-color", "green");
-            $("#ready-spot").html("NOW" + "\nREADY");
+            $("#ready-spot").html("NOW\nREADY");
             $("#start").prop('disabled', false);
             $("#counter").html(String("0" + minute).slice(-2) + "." + String("0" + second).slice(-2));
         }
