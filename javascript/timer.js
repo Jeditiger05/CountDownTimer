@@ -99,6 +99,7 @@ $(document).ready(function () {//anonamous fucntion runs when page loads
         $("#counter").html("");
         $("#reset").prop('disabled', true);
         $("#ready-spot").css("background-color", "darkred");
+        $("#ready-spot").html("NOT\nREADY");
         $("#start").prop('disabled', true);
         console.log("Reset");
     });
