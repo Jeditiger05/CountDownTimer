@@ -130,6 +130,7 @@ $(document).ready(function () {//anonamous fucntion runs when page loads
         console.log("Ready");
         $("#reset").prop('disabled', false);
         clearInterval(roundTimer);
+        clearInterval(breakTimer);
 
         if ($("#rounds").val() != "") {
             rounds = parseFloat($("#rounds").val());
