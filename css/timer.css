@@ -7,7 +7,7 @@ body{
     background-color: rgba(72, 76, 84, .8);
     color: #35373a;
     width: 600px;
-    height: 360px;
+    height: 390px;
     border-radius: 20px;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.06);
 }
@@ -33,16 +33,30 @@ body{
 }
 
 .ready{
-    margin-left: -50px;
-    padding-top: 5px;
-    font-size: smaller;
+    margin-left: -60px;
+    padding-top: 10px;
+    font-size: small;
     border: solid black 1px;
     color: ivory;
     float: right;
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     background-color: darkred;
-    border-radius: 50px;
+    border-radius: 60px;
+}
+
+.round{
+    margin-top: 15px;
+    margin-left: -60px;
+    padding-top: 7px;
+    font-size: xx-large;
+    border: solid black 1px;
+    color: ivory;
+    float: right;
+    width: 60px;
+    height: 60px;
+    background-color: rgb(41, 26, 173);
+    border-radius: 60px;
 }
 
 .my-btn {
@@ -55,13 +69,23 @@ body{
 label {
     font-weight: bolder;
     color: orange;
+}
+
+.header{
+    font-weight: bolder;
+    color: orange;
     font-size: xx-large;
 }
 
+.inputs{
+    width: 290px;
+    float: left;
+}
 input{
+    float: right;
     font-weight: bold;
     width: 55px;
-    height: 35px;
+    height: 25px;
 }
 
 @font-face {

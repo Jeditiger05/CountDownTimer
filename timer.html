@@ -15,18 +15,34 @@
 <!-- All The HTML for the Elements on Screen -->
 
 <body>
+
 	<div class="container">
-		
 		<div class="header">
-			<label>ROUNDS COUNTER V4.0 </label>
+			<label>ROUNDS COUNTER V5.0 </label>
 		</div>
 		<div id="ready-spot" class="ready"></div>
+		<!-- round inputs -->
 		<div class="inputs">
-			<input id="minutes" type="number" max="60" placeholder=" Min" onkeydown="return false">
+			<label>Rount Time</label>
+			<input id="seconds" type="number" max="59" min="0" placeholder=" Sec" onkeydown="return false">
 			<label style="color: black; font-weight: bold;">:</label>
-			<input id="seconds" type="number" max="60" placeholder=" Sec" onkeydown="return false">
+			<input id="minutes" type="number" max="59" min="0" placeholder=" Min" onkeydown="return false">
 		</div>
-
+		<!-- break inputs -->
+		<div class="inputs">
+			<label>Break Time</label>
+			<label style="color: black; font-weight: bold;">:&nbsp;</label>
+			<input id="bSec" type="number" max="59" min="0" placeholder=" Sec" onkeydown="return false">
+			<input id="bMin" type="number" max="59" min="0" placeholder=" Min" onkeydown="return false">
+		</div>
+		<!-- number of round input -->
+		<div class="inputs">
+			<label>Numer of Rounds</label>
+			<label style="color: black; font-weight: bold;">:&nbsp;&nbsp;&nbsp;&nbsp;</label>
+			<input id="rounds" type="number" min="0" placeholder="Num" onkeydown="return false">
+		</div>
+		<div id="round-spot" class="round"></div>
+		<!-- counter display -->
 		<div class="counter-container">
 			<p class="seven-segment" id="counter"></p>
 		</div>
