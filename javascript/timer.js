@@ -40,6 +40,7 @@ $(document).ready(function () {//anonamous fucntion runs when page loads
         Reset();
     });
 
+    //This function controlls the Rounds time
     function RunTimer() {
         //Clear the timer
         clearInterval(roundTimer);
@@ -85,6 +86,7 @@ $(document).ready(function () {//anonamous fucntion runs when page loads
         }, 1000);
     }
 
+    //This function controlls the Break time between rounds 
     function Break() {
         round += 1;
         //Clear the timer
