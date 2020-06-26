@@ -30,10 +30,12 @@ $(document).ready(function () {//anonamous fucntion runs when page loads
     $("#start").on('click', function () {
         console.log("Start");
         $("#reset").prop('disabled', true);
-        if (running == 1)
+        if (running == 1) {
             RunTimer();
-        else
+        } else {
             Break();
+        }
+
     });
 
     //Stops Timer from Button click
@@ -85,8 +87,7 @@ $(document).ready(function () {//anonamous fucntion runs when page loads
                 if (rounds > round) {
                     endBell.play();
                     Break();
-                }
-                else {
+                } else {
                     endBell.play();
                     Reset();
                 }
@@ -98,7 +99,6 @@ $(document).ready(function () {//anonamous fucntion runs when page loads
     //This function controlls the Break time between rounds 
     function Break() {
         running = 2;
-        round += 1;
         //Clear the timer
         clearInterval(breakTimer);
         $("#counter").css("color", "darkred");
@@ -110,7 +110,13 @@ $(document).ready(function () {//anonamous fucntion runs when page loads
             countDown.setTime(destination.getTime() + (bMin * 60 * 1000));
             countDown.setTime(countDown.getTime() + (bSec * 1000));
         }
-
+        //If break or round stopped decrement round number
+        if (stopBreak == 1) {
+            stopBreak = 0;
+            round -= 1;
+        }
+        //Increment Round Number
+        round += 1;
         //Set Timer with 1000 milisecond (1 second) intervals
         breakTimer = setInterval(function () {
 
@@ -173,8 +179,7 @@ $(document).ready(function () {//anonamous fucntion runs when page loads
                 stopRound = 1;
                 stopBreak = 0;
                 clearInterval(roundTimer);
-            }
-            else {
+            } else {
                 stopBreak = 1;
                 stopRound = 0;
                 clearInterval(breakTimer);
