@@ -1,11 +1,13 @@
 var destination;
 var countDown;
 var position;
-var stopped = 0;
+var stopRound = 0;
+var stopBreak = 0
 var rounds = 1;
 var round = 1;
 var roundTimer;
 var breakTimer;
+var running = 1;
 var minute = 0;
 var second = 0;
 var bMin = 0;
@@ -28,7 +30,10 @@ $(document).ready(function () {//anonamous fucntion runs when page loads
     $("#start").on('click', function () {
         console.log("Start");
         $("#reset").prop('disabled', true);
-        RunTimer();
+        if (running == 1)
+            RunTimer();
+        else
+            Break();
     });
 
     //Stops Timer from Button click
@@ -43,13 +48,14 @@ $(document).ready(function () {//anonamous fucntion runs when page loads
 
     //This function controlls the Rounds time
     function RunTimer() {
+        running = 1;
         //Clear the timer
         clearInterval(roundTimer);
         $("#round-spot").html(round);
         $("#counter").css("color", "green");
         startBell.play();
         // Set time to count down to
-        if (stopped != 1) {
+        if (stopRound != 1) {
             destination = new Date();
             countDown = new Date();
             countDown.setTime(destination.getTime() + (minute * 60 * 1000));
@@ -64,8 +70,7 @@ $(document).ready(function () {//anonamous fucntion runs when page loads
             //Increment current time every interval
             destination.setTime(destination.getTime() + (1 * 1000));
 
-            // Time calculations for days, hours, minutes and secondsvar days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((position % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            // Time calculations for days, hours, minutes and seconds
             var minutes = Math.floor((position % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((position % (1000 * 60)) / 1000);
 
@@ -73,7 +78,7 @@ $(document).ready(function () {//anonamous fucntion runs when page loads
             $("#counter").html(String("0" + minutes).slice(-2) + "." + String("0" + seconds).slice(-2));
 
             //Stop timer when minutes ans seconds both = zero
-            if (minutes == 0 && seconds == 0 && hours == 0) {
+            if (minutes == 0 && seconds == 0) {
                 clearInterval(roundTimer);
                 $("#reset").prop('disabled', false);
                 beep.play();
@@ -92,13 +97,14 @@ $(document).ready(function () {//anonamous fucntion runs when page loads
 
     //This function controlls the Break time between rounds 
     function Break() {
+        running = 2;
         round += 1;
         //Clear the timer
         clearInterval(breakTimer);
         $("#counter").css("color", "darkred");
         $("#round-spot").html("B");
         // Set time to count down to
-        if (stopped != 1) {
+        if (stopBreak != 1) {
             destination = new Date();
             countDown = new Date();
             countDown.setTime(destination.getTime() + (bMin * 60 * 1000));
@@ -113,8 +119,7 @@ $(document).ready(function () {//anonamous fucntion runs when page loads
             //Increment current time every interval
             destination.setTime(destination.getTime() + (1 * 1000));
 
-            // Time calculations for days, hours, minutes and secondsvar days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((position % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            // Time calculations for days, hours, minutes and seconds
             var minutes = Math.floor((position % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((position % (1000 * 60)) / 1000);
 
@@ -122,7 +127,7 @@ $(document).ready(function () {//anonamous fucntion runs when page loads
             $("#counter").html(String("0" + minutes).slice(-2) + "." + String("0" + seconds).slice(-2));
 
             //Stop timer when minutes ans seconds both = zero
-            if (minutes == 0 && seconds == 0 && hours == 0) {
+            if (minutes == 0 && seconds == 0) {
                 clearInterval(breakTimer);
                 $("#reset").prop('disabled', false);
                 RunTimer();
@@ -162,10 +167,19 @@ $(document).ready(function () {//anonamous fucntion runs when page loads
 
     function Stop() {
         if (minute > 0 || second > 0) {
-            stopped = 1;
+
             console.log("Stopped");
-            clearInterval(roundTimer);
-            clearInterval(breakTimer);
+            if (running == 1) {
+                stopRound = 1;
+                stopBreak = 0;
+                clearInterval(roundTimer);
+            }
+            else {
+                stopBreak = 1;
+                stopRound = 0;
+                clearInterval(breakTimer);
+            }
+
             $("#reset").prop('disabled', false);
         }
     }
@@ -173,7 +187,8 @@ $(document).ready(function () {//anonamous fucntion runs when page loads
     function Reset() {
         clearInterval(roundTimer);
         clearInterval(breakTimer);
-        stopped = 0;
+        stopRound = 0;
+        stopBreak = 0;
         minute = 0;
         second = 0;
         bMin = 0;
