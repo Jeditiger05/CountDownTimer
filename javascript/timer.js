@@ -81,7 +81,7 @@ $(document).ready(function () {//anonamous fucntion runs when page loads
                     endBell.play();
                     Break();
                 }
-                else{
+                else {
                     endBell.play();
                     Reset();
                 }
@@ -179,6 +179,7 @@ $(document).ready(function () {//anonamous fucntion runs when page loads
         bMin = 0;
         bSec = 0;
         rounds = 1;
+        round = 1;
         $("#minutes").val("");
         $("#seconds").val("");
         $("#bMin").val("");
