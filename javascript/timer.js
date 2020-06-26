@@ -10,7 +10,8 @@ var minute = 0;
 var second = 0;
 var bMin = 0;
 var bSec = 0;
-var beep = new Audio("assets/beep.flac");
+var startBell = new Audio("assets/bell-one.mp3");
+var endBell = new Audio("assets/bell-two.mp3");
 
 $(document).ready(function () {//anonamous fucntion runs when page loads
     $("#reset").prop('disabled', true);
@@ -46,6 +47,7 @@ $(document).ready(function () {//anonamous fucntion runs when page loads
         clearInterval(roundTimer);
         $("#round-spot").html(round);
         $("#counter").css("color", "green");
+        startBell.play();
         // Set time to count down to
         if (stopped != 1) {
             destination = new Date();
@@ -76,9 +78,11 @@ $(document).ready(function () {//anonamous fucntion runs when page loads
                 $("#reset").prop('disabled', false);
                 beep.play();
                 if (rounds > round) {
+                    endBell.play();
                     Break();
                 }
                 else{
+                    endBell.play();
                     Reset();
                 }
             }
@@ -121,7 +125,6 @@ $(document).ready(function () {//anonamous fucntion runs when page loads
             if (minutes == 0 && seconds == 0 && hours == 0) {
                 clearInterval(breakTimer);
                 $("#reset").prop('disabled', false);
-                beep.play();
                 RunTimer();
             }
 
