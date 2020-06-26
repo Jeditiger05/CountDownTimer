@@ -74,7 +74,7 @@ $(document).ready(function () {//anonamous fucntion runs when page loads
                 clearInterval(roundTimer);
                 $("#reset").prop('disabled', false);
                 beep.play();
-                if (rounds != round) {
+                if (rounds > round) {
                     Break();
                 }
                 else{
@@ -148,7 +148,6 @@ $(document).ready(function () {//anonamous fucntion runs when page loads
             second = parseFloat($("#seconds").val());
 
         if (minute != 0 || second != 0) {
-            $("#ready-spot").css("background-color", "green");
             $("#ready-spot").html("NOW\nREADY");
             $("#start").prop('disabled', false);
             $("#counter").html(String("0" + minute).slice(-2) + "." + String("0" + second).slice(-2));
@@ -173,13 +172,14 @@ $(document).ready(function () {//anonamous fucntion runs when page loads
         second = 0;
         bMin = 0;
         bSec = 0;
-        rounds = 0;
+        rounds = 1;
         $("#minutes").val("");
         $("#seconds").val("");
         $("#bMin").val("");
         $("#bSec").val("");
         $("#rounds").val("");
         $("#counter").html("");
+        $("#counter").css("color", "darkred");
         $("#reset").prop('disabled', true);
         $("#ready-spot").css("background-color", "darkred");
         $("#ready-spot").html("NOT\nREADY");
