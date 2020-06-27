@@ -12,6 +12,7 @@ var minute = 0;
 var second = 0;
 var bMin = 0;
 var bSec = 0;
+var buzzer = new Audio("assets/buzzer.mp3");
 var startBell = new Audio("assets/bell-one.mp3");
 var endBell = new Audio("assets/bell-two.mp3");
 
@@ -35,7 +36,6 @@ $(document).ready(function () {//anonamous fucntion runs when page loads
         } else {
             Break();
         }
-
     });
 
     //Stops Timer from Button click
@@ -79,6 +79,10 @@ $(document).ready(function () {//anonamous fucntion runs when page loads
             //Display Results to HTML Element
             $("#counter").html(String("0" + minutes).slice(-2) + "." + String("0" + seconds).slice(-2));
 
+            //Play Buzzer when does to last 3 seconds
+            if (seconds <= 3 && seconds > 0) {
+                buzzer.play();
+            }
             //Stop timer when minutes ans seconds both = zero
             if (minutes == 0 && seconds == 0) {
                 clearInterval(roundTimer);
@@ -132,6 +136,10 @@ $(document).ready(function () {//anonamous fucntion runs when page loads
             //Display Results to HTML Element
             $("#counter").html(String("0" + minutes).slice(-2) + "." + String("0" + seconds).slice(-2));
 
+            //Play Buzzer when does to last 3 seconds
+            if (seconds <= 3 && seconds > 0) {
+                buzzer.play();
+            }
             //Stop timer when minutes ans seconds both = zero
             if (minutes == 0 && seconds == 0) {
                 clearInterval(breakTimer);

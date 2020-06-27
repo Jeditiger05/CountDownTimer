@@ -3,11 +3,11 @@ body{
 }
 .container {
     text-align: center;
-    margin-top: 25px;
+    margin-top: 10px;
     background-color: rgba(72, 76, 84, .8);
     color: #35373a;
     width: 600px;
-    height: 390px;
+    height: 350px;
     border-radius: 20px;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.06);
 }
@@ -15,10 +15,10 @@ body{
 .counter-container {
     padding-top: -20px;
     border-radius: 10px;
-    background-image: url(../../countdowntimer/assets/7-segment_back.jpg);
+    background-image: url(../../countdowntimer/assets/7-segment_black1.jpg);
     background-size: 400px 150px;
     background-color: grey;
-    margin: 30px;
+    margin: 15px;
     display: inline-block;
     text-align: center;
     width: 400px;
