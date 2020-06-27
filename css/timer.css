@@ -17,7 +17,6 @@ body{
     border-radius: 10px;
     background-image: url(../../countdowntimer/assets/7-segment_black1.jpg);
     background-size: 400px 150px;
-    background-color: grey;
     margin: 15px;
     display: inline-block;
     text-align: center;
@@ -98,6 +97,5 @@ input{
     font-family: 'Segment7Standard';
     font-style: italic;
     font-weight: bolder;
-    color: rgb(151, 0, 25);
     font-size: 120px;
 }

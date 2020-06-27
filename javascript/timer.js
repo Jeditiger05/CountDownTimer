@@ -175,6 +175,7 @@ $(document).ready(function () {//anonamous fucntion runs when page loads
         if (minute != 0 || second != 0) {
             $("#ready-spot").html("NOW\nREADY");
             $("#start").prop('disabled', false);
+            $("#counter").css("color", "darkred");
             $("#counter").html(String("0" + minute).slice(-2) + "." + String("0" + second).slice(-2));
         }
     }
