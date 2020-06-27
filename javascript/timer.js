@@ -55,6 +55,8 @@ $(document).ready(function () {//anonamous fucntion runs when page loads
         clearInterval(roundTimer);
         $("#round-spot").html(round);
         $("#counter").css("color", "green");
+        $("#start").prop('disabled', true);
+        $("#stop").prop('disabled', true);
         startBell.play();
         // Set time to count down to
         if (stopRound != 1) {
@@ -107,6 +109,7 @@ $(document).ready(function () {//anonamous fucntion runs when page loads
         clearInterval(breakTimer);
         $("#counter").css("color", "darkred");
         $("#round-spot").html("B");
+        $("#stop").prop('disabled', false);
         // Set time to count down to
         if (stopBreak != 1) {
             destination = new Date();
@@ -174,6 +177,7 @@ $(document).ready(function () {//anonamous fucntion runs when page loads
 
         if (minute != 0 || second != 0) {
             $("#ready-spot").html("NOW\nREADY");
+            $("#ready-spot").css("background-color", "green");
             $("#start").prop('disabled', false);
             $("#counter").css("color", "darkred");
             $("#counter").html(String("0" + minute).slice(-2) + "." + String("0" + second).slice(-2));
@@ -181,21 +185,17 @@ $(document).ready(function () {//anonamous fucntion runs when page loads
     }
 
     function Stop() {
-        if (minute > 0 || second > 0) {
-
-            console.log("Stopped");
-            if (running == 1) {
-                stopRound = 1;
-                stopBreak = 0;
-                clearInterval(roundTimer);
-            } else {
+        console.log("Stopped");
+        $("#start").prop('disabled', false);
+        if (running != 1) {
+            if (bMin > 0 || bSec > 0) {
                 stopBreak = 1;
                 stopRound = 0;
                 clearInterval(breakTimer);
             }
-
-            $("#reset").prop('disabled', false);
         }
+
+        $("#reset").prop('disabled', false);
     }
 
     function Reset() {
