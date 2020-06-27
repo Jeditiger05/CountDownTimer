@@ -82,7 +82,7 @@ $(document).ready(function () {//anonamous fucntion runs when page loads
             $("#counter").html(String("0" + minutes).slice(-2) + "." + String("0" + seconds).slice(-2));
 
             //Play Buzzer when does to last 3 seconds
-            if (seconds <= 3 && seconds > 0) {
+            if (minutes == 0 && seconds <= 3 && seconds > 0) {
                 buzzer.play();
             }
             //Stop timer when minutes ans seconds both = zero
@@ -95,7 +95,9 @@ $(document).ready(function () {//anonamous fucntion runs when page loads
                     Break();
                 } else {
                     endBell.play();
+                    //bellTimeout = setTimeout(function (){endBell.play();}, 1000);
                     Reset();
+
                 }
             }
 
@@ -140,7 +142,7 @@ $(document).ready(function () {//anonamous fucntion runs when page loads
             $("#counter").html(String("0" + minutes).slice(-2) + "." + String("0" + seconds).slice(-2));
 
             //Play Buzzer when does to last 3 seconds
-            if (seconds <= 3 && seconds > 0) {
+            if (minutes == 0 && seconds <= 3 && seconds > 0) {
                 buzzer.play();
             }
             //Stop timer when minutes ans seconds both = zero
